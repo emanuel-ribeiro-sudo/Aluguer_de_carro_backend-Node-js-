@@ -12,7 +12,7 @@
 //         numero_carta:'S-1124', 
 //         cargo:'Cliente',
 //         email:'jose1@gmail.com',
-//         senha:'000023'
+//         senha:'000023' 
 //     }) 
 //     // console.log(novoUser);
 
@@ -55,7 +55,7 @@ app.use(express.json())
 app.use(routes)
 
 app.listen(3333,() => console.log('Server running at http://localhost:3333'));
-
+ 
 
 
 // (async()=>{
