@@ -15,7 +15,7 @@ router.get ("/", (req, res) => {
 
 // router.use(authMiddleware);
   // Users
-router.get('/users',authMiddleware ,UserController.index);
+router.get('/users' ,UserController.index);
 
 router.post('/addusers',UserController.store);
 

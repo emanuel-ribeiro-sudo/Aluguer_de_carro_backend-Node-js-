@@ -13,7 +13,7 @@ function generateToken(params = {}){
 
 module.exports={
     async login(req,res){
-        const {senha, email, logado} = req.body;
+        const {senha, email} = req.body;
         const user = await User.findOne({where: {email}});
         if (!user){
             return res.status(400).send({
@@ -27,19 +27,19 @@ module.exports={
                 status:0,
                 message:'Senha Incorecta'
             });
-        }
-        const user_bi = user.bi;
-        await User.update({
-            logado
-        },{
-            where:{
-                bi:user_bi
-            }
-        });
+        }  
+        // const user_bi = user.bi;
+        // await User.update({
+        //     logado
+        // },{
+        //     where:{
+        //         bi:user_bi
+        //     }
+        // });  
         user.senha = undefined;
 
         const token = generateToken({bi: user.bi})
-
+ 
         return res.status(200).send({
             status:1,
             message:"Usuario Logado com sucesso",
